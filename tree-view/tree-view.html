@@ -1,0 +1,20 @@
+<ul>
+    <li *ngFor = "let node of nodes">
+        <span class="fa" [ngClass]="{'fa-plus':!node.expanded,'fa-minus':node.expanded}"
+         (click)="node.toggle()"></span>
+         <a href="#">
+            <span (click)="doSomething(node)" [ngClass]="{'active':staticCurrentNode===node}">{{node.name}}</span>
+         </a>        
+        <div *ngIf="node.expanded">
+            <ul>
+                <li *ngFor="let leaf of node.childLeaves">                    
+                    <span class="fa fa-minus"></span>
+                    <a href="#">
+                        <span (click)="doSomething(leaf)" [ngClass]="{'active':staticCurrentNode===leaf}">{{leaf.name}}</span>
+                    </a>                    
+                </li>
+            </ul>
+            <tree-view #innerTreeView [nodes]="node.childNodes" (doSomethingEvent)="popEventHandler($event)"></tree-view>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,16 @@
+ul{
+    list-style:none;
+}
+
+span{
+    color:#00a65a;
+}
+
+span.fa{
+    color:#008d4c;
+}
+
+span.active{
+    background-color:#00a65a;
+    color:#fff;
+}
